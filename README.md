@@ -34,24 +34,24 @@ using 'delta time' to ensure smooth motion regardless of frame rate for bette Us
 
 ## Installation
 
--Open your terminal or command prompt.
--Use the following command to clone the repository:
+- Open your terminal or command prompt.
+- Use the following command to clone the repository:
 
 git clone https://github.com/arm1991/Bouncing-Ballz.git
 
 ## Open the Project in Visual Studio Code:
 
--Launch Visual Studio Code.
--Go to File -> Open Folder.
--Navigate to the cloned repository folder and select it.
+- Launch Visual Studio Code.
+- Go to File -> Open Folder.
+- Navigate to the cloned repository folder and select it.
 
 ## Installing Live Server Extension:
 
--In Visual Studio Code, go to the Extensions view by clicking on the square icon in the sidebar or pressing Ctrl+Shift+X.
--Search for "Live Server" in the Extensions Marketplace.
--Install the extension provided by Ritwick Dey.
--Using Live Server:
+- In Visual Studio Code, go to the Extensions view by clicking on the square icon in the sidebar or pressing Ctrl+Shift+X.
+- Search for "Live Server" in the Extensions Marketplace.
+- Install the extension provided by Ritwick Dey.
+- Using Live Server:
 
--Once the Live Server extension is installed, open your HTML file (index.html) in Visual Studio Code.
--Right-click anywhere in the HTML file and select Open with Live Server.
--This will open the HTML file and play the game.
+- Once the Live Server extension is installed, open your HTML file (index.html) in Visual Studio Code.
+- Right-click anywhere in the HTML file and select Open with Live Server.
+- This will open the HTML file and play the game.
