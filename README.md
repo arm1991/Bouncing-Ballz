@@ -45,13 +45,6 @@ git clone https://github.com/arm1991/Bouncing-Ballz.git
 - Go to File -> Open Folder.
 - Navigate to the cloned repository folder and select it.
 
-## Installing Live Server Extension:
+## Installing Live Server Extension And Running Code:
 
-- In Visual Studio Code, go to the Extensions view by clicking on the square icon in the sidebar or pressing Ctrl+Shift+X.
-- Search for "Live Server" in the Extensions Marketplace.
-- Install the extension provided by Ritwick Dey.
-- Using Live Server:
-
-- Once the Live Server extension is installed, open your HTML file (index.html) in Visual Studio Code.
-- Right-click anywhere in the HTML file and select Open with Live Server.
-- This will open the HTML file and play the game.
+https://www.youtube.com/watch?v=y4qqQeUDCBQ
