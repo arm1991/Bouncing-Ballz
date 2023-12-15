@@ -21,13 +21,13 @@ using 'delta time' to ensure smooth motion regardless of frame rate for bette Us
 
 ## Additional Features
 
-Optimization: Limited to a maximum of 15 balls on screen at a time.
-UI Interactions: Toggle ball appearances and choose celestial bodies.
-Aesthetics: Backgrounds and ball representations enhance visual experience.
-Realism: Gravity settings mimic real celestial bodies.
+- Optimization: Limited to a maximum of 15 balls on screen at a time.
+- UI Interactions: Toggle ball appearances and choose celestial bodies.
+- Aesthetics: Backgrounds and ball representations enhance visual experience.
+- Realism: Gravity settings mimic real celestial bodies.
 
 ## Development Details
 
-The project primarily uses HTML5 Canvas, JavaScript, and images for visual elements.
-The codebase includes classes for different ball types, gravity settings for various worlds,
-and methods for rendering and updating the game.
+- The project primarily uses HTML5 Canvas, JavaScript, and images for visual elements.
+- The codebase includes classes for different ball types, gravity settings for various worlds,
+- and methods for rendering and updating the game.
