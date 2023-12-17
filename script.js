@@ -15,9 +15,24 @@ import store from "./store/store.js";
 import { worldsData } from "./config/config.js";
 
 // destructurisation of store elements
-const { windowBackgroundImg, canvas, context, worldLabels, ballLabels } =
-  store.domElements;
-let { balls, world, gravity, backgroundImg, lastTime } = store.elements;
+const {
+  windowBackgroundImg,
+  canvas,
+  context,
+  worldInputs,
+  ballInputs,
+  worldLabels,
+} = store.domElements;
+let {
+  balls,
+  world,
+  gravity,
+  backgroundImg,
+  lastTime,
+  prevTime,
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+} = store.elements;
 
 // to set all classes properties to appear after click on canvas
 setClassValue();
@@ -25,40 +40,46 @@ setClassValue();
 // get default set world data
 getData("earth", worldsData);
 
-const renderGame = (ctx, balls, canvas) => {
-  clearCanvas(ctx, canvas);
-  drawCanvas(ctx, balls, canvas, backgroundImg);
+const renderGame = (ctx, balls, CANVAS_WIDTH, CANVAS_HEIGHT) => {
+  clearCanvas(ctx, CANVAS_WIDTH, CANVAS_HEIGHT);
+  drawCanvas(ctx, balls, CANVAS_WIDTH, CANVAS_HEIGHT, backgroundImg);
 };
 
-const updateGame = (deltaTime, canvas, gravity) => {
+const updateGame = (deltaTime, gravity, CANVAS_HEIGHT) => {
   balls.forEach((ball) => {
-    ball.changeVelocity(gravity);
-    if (checkStop(ball, canvas.height)) {
+    ball.changeVelocity(gravity, deltaTime);
+    if (checkStop(ball, CANVAS_HEIGHT)) {
       // if the ball is stopped
       ball.removeAnimation(deltaTime, gravity);
-      if (ball.y - ball.height > canvas.height) {
+      if (ball.y - ball.height > CANVAS_HEIGHT) {
         // if the removing animation is over
         balls = removeBall(balls, ball.id);
       }
-    } else if (checkVelocity(ball) || checkBottom(ball, canvas.height)) {
+    } else if (checkVelocity(ball) || checkBottom(ball, CANVAS_HEIGHT)) {
       // if it stopped or hit the bottom of page
-      ball.changeDirection(canvas.height);
+      ball.changeDirection(CANVAS_HEIGHT);
     }
-    ball.changeCordinates(deltaTime, canvas.height);
+    if (checkBottom(ball, CANVAS_HEIGHT)) {
+    }
+
+    ball.changeCordinates(deltaTime, CANVAS_HEIGHT);
   });
 };
 
 function tick(currentTime) {
   // convert to milliseconds
-  const deltaTime = (currentTime - lastTime) / 1000;
-  lastTime = currentTime;
+  const dt = (performance.now() - prevTime) / 1000;
+  prevTime = performance.now();
+  // const deltaTime = (currentTime - lastTime) / 1000;
+  // lastTime = currentTime;
 
-  renderGame(context, balls, canvas);
-  updateGame(deltaTime, canvas, gravity);
+  renderGame(context, balls, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  updateGame(dt, gravity, CANVAS_HEIGHT);
   requestAnimationFrame(tick);
 }
 
-// to start the game afterthe background appears
+// to start the game after the background appears
 backgroundImg.onload = function () {
   changeCanvasSize(canvas, context);
   requestAnimationFrame(tick);
@@ -71,7 +92,6 @@ canvas.addEventListener("click", (e) => {
       e.offsetY,
       Math.floor(Math.random() * Date.now())
     );
-
     // to check if the playere selected at least one ball
     if (randomBall) {
       balls.push(randomBall);
@@ -82,32 +102,36 @@ canvas.addEventListener("click", (e) => {
   }
 });
 
-worldLabels.forEach((label) => {
-  label.addEventListener("click", (e) => {
-    // add active class to label
-    changeWorldLabelClass(e.target, worldLabels);
-    // to get the new data of world
-    getData(e.target.id, worldsData);
-  });
-});
+ballInputs.forEach((input) => {
+  input.addEventListener("change", (e) => {
+    const label = document.querySelector(`[for="${e.target.id}"]`);
 
-ballLabels.forEach((label) => {
-  label.addEventListener("click", (e) => {
-    // add active class to label
-    changeBallLabelClass(e.target);
+    // add active class to labe
+    changeBallLabelClass(label);
     // change class property if player unselected or selected the ball
     disappearBall(e.target.id);
   });
 });
 
-function getData(label, worldsData) {
-  world = getWorld(label, worldsData);
+worldInputs.forEach((input) => {
+  input.addEventListener("change", (e) => {
+    const label = document.querySelector(`[for="${e.target.id}"]`);
+
+    // add active class to label
+    changeWorldLabelClass(label, worldLabels);
+    // to get the new data of world
+    getData(e.target.id, worldsData);
+  });
+});
+
+function getData(name, worldsData) {
+  world = getWorld(name, worldsData);
   gravity = world.gravity;
   backgroundImg = world.img;
   windowBackgroundImg.style.backgroundImage = `url("${world.img.src}")`;
 }
 
 function changeCanvasSize(canvas) {
-  canvas.width = window.innerHeight;
-  canvas.height = window.innerHeight;
+  canvas.width = CANVAS_WIDTH = window.innerHeight;
+  canvas.height = CANVAS_HEIGHT = window.innerHeight;
 }

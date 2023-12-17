@@ -4,8 +4,9 @@ const store = {
     windowBackgroundImg: document.querySelector(".background-img"),
     canvas,
     context: canvas.getContext("2d"),
+    worldInputs: document.querySelectorAll(".world-input"),
+    ballInputs: document.querySelectorAll(".ball-input"),
     worldLabels: document.querySelectorAll(".world-label"),
-    ballLabels: document.querySelectorAll(".ball-label"),
   },
   elements: {
     balls: [],
@@ -13,6 +14,9 @@ const store = {
     gravity: "",
     backgroundImg: "",
     lastTime: 0,
+    prevTime: performance.now(),
+    CANVAS_HEIGHT: "",
+    CANVAS_WIDTH: "",
   },
 };
 

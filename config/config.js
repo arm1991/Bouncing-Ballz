@@ -27,68 +27,59 @@ earthImg.src = "../assets/backgrounds/earth_background.png";
 const moonImg = new Image();
 moonImg.src = "../assets/backgrounds/moon_background.png";
 
-const sunImg = new Image();
-sunImg.src = "../assets/backgrounds/sun_background.png";
-
 const plutoImg = new Image();
 plutoImg.src = "../assets/backgrounds/pluto_background.png";
 
 const worldsData = [
   {
-    name: "sun",
-    img: sunImg,
-    // 11172 real gravity comapred to earth wich is 400 in this game but there is a lot of bugs with this number!
-    gravity: 1000,
-  },
-  {
     name: "mercury",
     img: mercuryImg,
-    gravity: 152,
+    gravity: 223.44,
   },
   {
     name: "venus",
     img: venusImg,
-    gravity: 364,
+    gravity: 535.08,
   },
   {
     name: "earth",
     img: earthImg,
-    gravity: 400,
+    gravity: 588,
   },
   {
     name: "moon",
     img: moonImg,
-    gravity: 68,
+    gravity: 99.96,
   },
   {
     name: "mars",
     img: marsImg,
-    gravity: 102,
+    gravity: 223.44,
   },
   {
     name: "jupiter",
     img: jupiterImg,
-    gravity: 1012,
+    gravity: 1387.68,
   },
   {
     name: "saturn",
     img: saturnImg,
-    gravity: 428,
+    gravity: 540.96,
   },
   {
     name: "uranus",
     img: uranusImg,
-    gravity: 368,
+    gravity: 523.32,
   },
   {
     name: "neptune",
     img: neptuneImg,
-    gravity: 456,
+    gravity: 658.56,
   },
   {
     name: "pluto",
     img: plutoImg,
-    gravity: 24,
+    gravity: 35.28,
   },
 ];
 

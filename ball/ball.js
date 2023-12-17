@@ -16,38 +16,40 @@ class Ball {
     this.velocityY = 0;
   }
 
-  removeAnimation(deltaTime, gravity) {
+  removeAnimation() {
     // animation of removed ball. it smoothly goes down
     this.y += 1;
   }
 
-  changeVelocity(gravity) {
+  changeVelocity(gravity, deltaTime) {
+    const distacne = gravity * deltaTime;
     if (this.direction === "down") {
-      this.velocityY += gravity + this.gravityFactor;
+      this.velocityY += distacne;
     } else if (this.direction === "up") {
-      this.velocityY -= gravity + this.gravityFactor;
+      this.velocityY -= distacne;
     }
+    // this.velocityY = Math.floor(this.velocityY) - 1;
   }
 
   changeCordinates(deltaTime) {
     // multiplying deltaTime for smoother animation
     const distacne = deltaTime * this.velocityY;
     if (this.direction === "down") {
-      this.y += distacne * deltaTime;
+      this.y += distacne;
     } else if (this.direction === "up") {
-      this.y -= distacne * deltaTime * this.bounceEffect;
+      this.y -= distacne;
     }
   }
 
-  changeDirection(canvasHeight) {
+  changeDirection(CANVAS_HEIGHT) {
     if (this.direction === "down") {
       this.direction = "up";
 
       // to set the ball to the bottom of the web page it may go under;
-      this.y = canvasHeight - this.height;
-
+      this.y = CANVAS_HEIGHT - this.height;
       // to lose velocity after hitting the bottom
       this.velocityY *= this.bounceEffect;
+      // console.log(this.velocityY);
     } else if (this.direction === "up") {
       this.velocityY = 0;
       this.direction = "down";
@@ -61,10 +63,8 @@ class Pingpong extends Ball {
     this.img = pingpong;
 
     // it is for loosing velocity after hitting the bottom multiplying it with velocity
-    this.bounceEffect = 0.8;
+    this.bounceEffect = 0.7;
 
-    // for more real animation during fall. Each ball has its own property
-    this.gravityFactor = 1.2;
     this.width = 30;
     this.height = 30;
 
@@ -81,8 +81,7 @@ class Basketball extends Ball {
   constructor(x, y, id) {
     super(x, y, id);
     this.img = basketball;
-    this.bounceEffect = 0.5;
-    this.gravityFactor = 1.5;
+    this.bounceEffect = 0.4;
     this.width = 60;
     this.height = 60;
     this.x -= this.width / 2;
@@ -94,10 +93,8 @@ class Basketball extends Ball {
 class Football extends Ball {
   constructor(x, y, id) {
     super(x, y, id);
-
     this.img = football;
     this.bounceEffect = 0.6;
-    this.gravityFactor = 1.8;
     this.width = 60;
     this.height = 60;
     this.x -= this.width / 2;
@@ -110,8 +107,7 @@ class Tennis extends Ball {
   constructor(x, y, id) {
     super(x, y, id);
     this.img = tennis;
-    this.bounceEffect = 0.7;
-    this.gravityFactor = 0.8;
+    this.bounceEffect = 0.65;
     this.width = 30;
     this.height = 30;
     this.x -= this.width / 2;
@@ -124,8 +120,7 @@ class Bowling extends Ball {
   constructor(x, y, id) {
     super(x, y, id);
     this.img = bowling;
-    this.bounceEffect = 0.3;
-    this.gravityFactor = 1.6;
+    this.bounceEffect = 0.2;
     this.width = 50;
     this.height = 50;
     this.x -= this.width / 2;

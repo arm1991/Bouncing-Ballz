@@ -3,9 +3,9 @@ export const getWorld = (name, worlds) => {
   return worlds.find((world) => world.name === name);
 };
 
-export const checkBottom = (ball, canvasHeight) => {
+export const checkBottom = (ball, CANVAS_HEIGHT) => {
   // to check if the ball touched the ground
-  return Math.ceil(ball.y) >= Math.floor(canvasHeight - ball.height);
+  return Math.ceil(ball.y + ball.height) >= CANVAS_HEIGHT;
 };
 
 export const checkVelocity = (ball) => {
@@ -13,14 +13,14 @@ export const checkVelocity = (ball) => {
   return Math.ceil(ball.velocityY) <= 0;
 };
 
-export const checkStop = (ball, canvasHeight) => {
+export const checkStop = (ball, CANVAS_HEIGHT) => {
   // check if the ball stopped to remove it
-  return checkVelocity(ball) && checkBottom(ball, canvasHeight);
+  return checkVelocity(ball) && checkBottom(ball, CANVAS_HEIGHT);
 };
 
-export const clearCanvas = (ctx, canvas) => {
+export const clearCanvas = (ctx, CANVAS_WIDTH, CANVAS_HEIGHT) => {
   // clear previous canvas picture
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 };
 
 export const removeBall = (balls, id) => {
@@ -28,9 +28,15 @@ export const removeBall = (balls, id) => {
   return balls.filter((ball) => ball.id !== id);
 };
 
-export const drawCanvas = (ctx, balls, canvas, backgroundImg) => {
+export const drawCanvas = (
+  ctx,
+  balls,
+  CANVAS_WIDTH,
+  CANVAS_HEIGHT,
+  backgroundImg
+) => {
   // draw the canvas
-  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(backgroundImg, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   balls.forEach(({ x, y, img, width, height }) => {
     ctx.drawImage(img, x, y, width, height);
     ctx.closePath();
