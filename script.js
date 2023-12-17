@@ -9,6 +9,7 @@ import {
   getWorld,
   changeBallLabelClass,
   changeWorldLabelClass,
+  changeCanvasSize,
 } from "./helpers/helpers.js";
 
 import store from "./store/store.js";
@@ -34,10 +35,7 @@ let {
   CANVAS_WIDTH,
 } = store.elements;
 
-// to set all classes properties to appear after click on canvas
-setClassValue();
-
-// get default set world data
+// set default world data
 getData("earth", worldsData);
 
 const renderGame = (ctx, balls, CANVAS_WIDTH, CANVAS_HEIGHT) => {
@@ -59,8 +57,6 @@ const updateGame = (deltaTime, gravity, CANVAS_HEIGHT) => {
       // if it stopped or hit the bottom of page
       ball.changeDirection(CANVAS_HEIGHT);
     }
-    if (checkBottom(ball, CANVAS_HEIGHT)) {
-    }
 
     ball.changeCordinates(deltaTime, CANVAS_HEIGHT);
   });
@@ -81,9 +77,14 @@ function tick(currentTime) {
 
 // to start the game after the background appears
 backgroundImg.onload = function () {
-  changeCanvasSize(canvas, context);
+  // to set all classes properties to appear after click on canvas
+  setClassValue();
+
+  changeCanvasSize(canvas, CANVAS_WIDTH, CANVAS_HEIGHT);
   requestAnimationFrame(tick);
 };
+
+// eventListeners
 
 canvas.addEventListener("click", (e) => {
   if (balls.length < 15) {
@@ -129,9 +130,4 @@ function getData(name, worldsData) {
   gravity = world.gravity;
   backgroundImg = world.img;
   windowBackgroundImg.style.backgroundImage = `url("${world.img.src}")`;
-}
-
-function changeCanvasSize(canvas) {
-  canvas.width = CANVAS_WIDTH = window.innerHeight;
-  canvas.height = CANVAS_HEIGHT = window.innerHeight;
 }

@@ -28,7 +28,6 @@ class Ball {
     } else if (this.direction === "up") {
       this.velocityY -= distacne;
     }
-    // this.velocityY = Math.floor(this.velocityY) - 1;
   }
 
   changeCordinates(deltaTime) {
@@ -49,7 +48,6 @@ class Ball {
       this.y = CANVAS_HEIGHT - this.height;
       // to lose velocity after hitting the bottom
       this.velocityY *= this.bounceEffect;
-      // console.log(this.velocityY);
     } else if (this.direction === "up") {
       this.velocityY = 0;
       this.direction = "down";

@@ -15,8 +15,8 @@ const store = {
     backgroundImg: "",
     lastTime: 0,
     prevTime: performance.now(),
-    CANVAS_HEIGHT: "",
-    CANVAS_WIDTH: "",
+    CANVAS_HEIGHT: window.innerHeight,
+    CANVAS_WIDTH: window.innerHeight,
   },
 };
 

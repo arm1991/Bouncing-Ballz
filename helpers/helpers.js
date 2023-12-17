@@ -57,3 +57,8 @@ export const changeWorldLabelClass = (label, worldLabels) => {
     label.classList.add("active");
   }
 };
+
+export const changeCanvasSize = (canvas, CANVAS_WIDTH, CANVAS_HEIGHT) => {
+  canvas.width = CANVAS_WIDTH;
+  canvas.height = CANVAS_HEIGHT;
+};
