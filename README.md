@@ -32,6 +32,12 @@ using 'delta time' to ensure smooth motion regardless of frame rate for bette Us
 - The codebase includes classes for different ball types, gravity settings for various worlds,
 - and methods for rendering and updating the game.
 
+## Ball Movement Calculations
+
+I use "Xf =  1/2 * a * dt * dt + V * dt + Xi" phisics formula where "Xf" Final position, "a" acceleration: in
+this case gravity, "dt" is delta time: the time past since last frame, "V" velocityY: speed of the ball,
+"Xi" initial position of ball (or previous frame ball position).
+
 ## Installation
 
 - Open your terminal or command prompt.
