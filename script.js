@@ -6,7 +6,7 @@ import {
     clearCanvas,
     removeBall,
     drawCanvas,
-    getItem,
+    getItemByName,
     changeBallLabelClass,
     changeWorldLabelClass,
     changeCanvasSize,
@@ -124,7 +124,7 @@ worldInputs.forEach((input) => {
 });
 
 function getData({ name, worldsData }) {
-    world = getItem({ name, items: worldsData });
+    world = getItemByName({ name, items: worldsData });
     acceleration = world.acceleration;
     backgroundImg = world.img;
     windowBackgroundImg.style.backgroundImage = `url("${world.img.src}")`;
