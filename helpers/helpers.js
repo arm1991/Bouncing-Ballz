@@ -66,6 +66,6 @@ export const getImage = (path) => {
     return img;
 };
 
-export const getItem = ({ name, items }) => {
+export const getItemByName = ({ name, items }) => {
     return items.find((item) => item.name === name);
 };

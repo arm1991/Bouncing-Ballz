@@ -1,170 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./style.css" />
-        <script src="./script.js" type="module"></script>
-        <title>Document</title>
-    </head>
-    <body>
-        <div class="game-container">
-            <div class="background-img"></div>
-            <div class="world-container choose-container">
-                <div class="world-item">
-                    <label class="world-item__label" for="mercury"
-                        >Mercury</label
-                    >
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="mercury"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="venus">Venus</label>
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="venus"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label active" for="earth"
-                        >Earth</label
-                    >
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="earth"
-                        name="world"
-                        checked
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="moon">Moon</label>
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="moon"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="mars">Mars</label>
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="mars"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="jupiter"
-                        >Jupiter</label
-                    >
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="jupiter"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="saturn">Saturn</label>
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="saturn"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="uranus">Uranus</label>
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="uranus"
-                        name="world"
-                    />
-                </div>
-                <div class="world-item">
-                    <label class="world-item__label" for="neptune"
-                        >Neptune</label
-                    >
-                    <input
-                        class="world-item__input"
-                        type="radio"
-                        id="neptune"
-                        name="world"
-                    />
-                </div>
-            </div>
-            <canvas class="canvas"></canvas>
-            <div class="ball-container choose-container">
-                <div class="ball-item">
-                    <label class="ball-item__label active" for="Tennis"
-                        >Tennis Ball</label
-                    >
-                    <input
-                        class="ball-item__input"
-                        type="checkbox"
-                        id="Tennis"
-                        name="ball"
-                        checked
-                    />
-                </div>
-                <div class="ball-item">
-                    <label class="ball-item__label active" for="Basketball"
-                        >Basktball Ball</label
-                    >
-                    <input
-                        class="ball-item__input"
-                        type="checkbox"
-                        id="Basketball"
-                        name="ball"
-                        checked
-                    />
-                </div>
-                <div class="ball-item">
-                    <label class="ball-item__label active" for="Football"
-                        >Football Ball</label
-                    >
-                    <input
-                        class="ball-item__input"
-                        type="checkbox"
-                        id="Football"
-                        name="ball"
-                        checked
-                    />
-                </div>
-                <div class="ball-item">
-                    <label class="ball-item__label active" for="Pingpong"
-                        >Pingpong Ball</label
-                    >
-                    <input
-                        class="ball-item__input"
-                        type="checkbox"
-                        id="Pingpong"
-                        name="ball"
-                        checked
-                    />
-                </div>
-                <div class="ball-item">
-                    <label class="ball-item__label active" for="Bowling"
-                        >Bowling ball</label
-                    >
-                    <input
-                        class="ball-item__input"
-                        type="checkbox"
-                        id="Bowling"
-                        name="ball"
-                        checked
-                    />
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" type="module"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="background-img"></div>
+      <div class="world-container choose-container">
+        <div class="world-item">
+          <label class="world-item__label" for="mercury">Mercury</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="mercury"
+            name="world"
+          />
         </div>
-    </body>
+        <div class="world-item">
+          <label class="world-item__label" for="venus">Venus</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="venus"
+            name="world"
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label active" for="earth">Earth</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="earth"
+            name="world"
+            checked
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label" for="moon">Moon</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="moon"
+            name="world"
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label" for="mars">Mars</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="mars"
+            name="world"
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label" for="jupiter">Jupiter</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="jupiter"
+            name="world"
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label" for="saturn">Saturn</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="saturn"
+            name="world"
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label" for="uranus">Uranus</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="uranus"
+            name="world"
+          />
+        </div>
+        <div class="world-item">
+          <label class="world-item__label" for="neptune">Neptune</label>
+          <input
+            class="world-item__input"
+            type="radio"
+            id="neptune"
+            name="world"
+          />
+        </div>
+      </div>
+      <canvas class="canvas"></canvas>
+      <div class="ball-container choose-container">
+        <div class="ball-item">
+          <label class="ball-item__label active" for="Tennis"
+            >Tennis Ball</label
+          >
+          <input
+            class="ball-item__input"
+            type="checkbox"
+            id="Tennis"
+            name="ball"
+            checked
+          />
+        </div>
+        <div class="ball-item">
+          <label class="ball-item__label active" for="Basketball"
+            >Basktball Ball</label
+          >
+          <input
+            class="ball-item__input"
+            type="checkbox"
+            id="Basketball"
+            name="ball"
+            checked
+          />
+        </div>
+        <div class="ball-item">
+          <label class="ball-item__label active" for="Football"
+            >Football Ball</label
+          >
+          <input
+            class="ball-item__input"
+            type="checkbox"
+            id="Football"
+            name="ball"
+            checked
+          />
+        </div>
+        <div class="ball-item">
+          <label class="ball-item__label active" for="Pingpong"
+            >Pingpong Ball</label
+          >
+          <input
+            class="ball-item__input"
+            type="checkbox"
+            id="Pingpong"
+            name="ball"
+            checked
+          />
+        </div>
+        <div class="ball-item">
+          <label class="ball-item__label active" for="Bowling"
+            >Bowling ball</label
+          >
+          <input
+            class="ball-item__input"
+            type="checkbox"
+            id="Bowling"
+            name="ball"
+            checked
+          />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
